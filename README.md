@@ -1,4 +1,8 @@
-# (🇹🇷) Karekod (QR Code) Üretici - C ile Sıfırdan Özel Kütüphane
+# Karekod (QR Code) Üretici - C ile Sıfırdan Özel Kütüphane
+
+<p align="center">
+  <img src="kapak-gorseli.png" alt="Karekod Üretici Terminal ve Çıktı" width="600">
+</p>
 
 Bu proje, hiçbir dış kütüphane (üçüncü parti bağımlılık) kullanılmadan, baştan sona **C programlama dili** ile yazılmış bir Karekod (QR Code) üreticisidir. Karekod standardının (ISO/IEC 18004) gerektirdiği tüm karmaşık matematiksel işlemler, hata düzeltme algoritmaları ve piksel tabanlı görüntü oluşturma süreçleri sıfırdan geliştirilmiştir.
 
@@ -12,6 +16,10 @@ Bu proje, hiçbir dış kütüphane (üçüncü parti bağımlılık) kullanılm
 * **Doğrudan `.bmp` Çıktısı:** Oluşturulan 1-0 matrisini, manuel BMP başlık (header) hesaplamaları ile `.bmp` formatında bir resim dosyasına dönüştürür.
 
 ## Nasıl Çalışır? (Adım Adım Karekod Üretimi)
+
+<p align="center">
+  <img src="karekod-anatomisi.png" alt="Karekod Anatomisi ve İşlev Modülleri" width="400">
+</p>
 
 Bu program bir metni alıp resme dönüştürürken şu adımları izler:
 
@@ -53,7 +61,12 @@ make
 ```bash
 ./karekod_uretici
 ```
-# (ENG) QR Code Generator - Custom C Library from Scratch
+# QR Code Generator - Custom C Library from Scratch
+
+<p align="center">
+  <img src="hero-image.png" alt="QR Code Generator Terminal Output" width="600">
+</p>
+
 This project is a complete QR Code (Karekod) generator written entirely in the **C programming language** from scratch, without the use of any external libraries or third-party dependencies. All complex mathematical operations, error correction algorithms, and pixel-based image generation processes required by the QR code standard (ISO/IEC 18004) were developed manually.
 
 ## Features
@@ -65,7 +78,13 @@ This project is a complete QR Code (Karekod) generator written entirely in the *
 • **Direct `.bmp` Output:** Converts the generated 1-0 matrix into a physical image file in `.bmp` format using manual BMP header calculations.
 
 ## How It Works (Step-by-Step Generation)
+
+<p align="center">
+  <img src="karekod-anatomisi.png" alt="Barcode Anatomy and Function Modules" width="400">
+</p>
+
 When converting text to an image, this program follows these educational steps:
+
 1. **Data Encoding:**
 The user's input string is analyzed. It converts the text into a long sequence of 1s and 0s (bits) using **Numeric Mode** (for digits only), **Alphanumeric Mode** (for mixed alphanumeric), or **Byte Mode** (for special characters).
 2. **Appending Error Correction Blocks:**
