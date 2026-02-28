@@ -90,20 +90,55 @@ void bmpOlarakKaydet(const uint8_t karekodDizisi[], const char *dosyaAdi) {
     fclose(f);
 }
 
-int main() {
-    char girisMetni[256];
+char *dinamikMetinAl() {
+    size_t boyut = 256;
+    size_t uzunluk = 0;
+    char *tampon = (char *)malloc(boyut);
     
+    if (!tampon) return NULL;
+
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        tampon[uzunluk++] = (char)c;
+        if (uzunluk == boyut) {
+            boyut *= 2;
+            char *yeniTampon = (char *)realloc(tampon, boyut);
+            if (!yeniTampon) {
+                free(tampon);
+                return NULL;
+            }
+            tampon = yeniTampon;
+        }
+    }
+    tampon[uzunluk] = '\0';
+    
+    return tampon;
+}
+
+int main() {
     printf("========================================\n");
     printf(" Karekod Uretici / QR Code Generator\n");
     printf("========================================\n");
     printf("Lutfen karekoda cevirmek istediginiz metni veya linki girin\nPlease enter the text or link you want to convert to a QR code: \n> ");
 
-    if (fgets(girisMetni, sizeof(girisMetni), stdin) != NULL) {
-        girisMetni[strcspn(girisMetni, "\n")] = '\0';
+    char *girisMetni = dinamikMetinAl();
+
+    if (!girisMetni || strlen(girisMetni) == 0) {
+        printf("\nHata: Gecerli bir metin girmediniz.\nError: You did not enter valid text.\n");
+        if (girisMetni) free(girisMetni);
+        return 1;
     }
 
-    uint8_t karekodDizisi[karekod_TAMPON_UZUNLUGU_MAKS];
-    uint8_t geciciTampon[karekod_TAMPON_UZUNLUGU_MAKS];
+    uint8_t *karekodDizisi = (uint8_t *)malloc(karekod_TAMPON_UZUNLUGU_MAKS);
+    uint8_t *geciciTampon = (uint8_t *)malloc(karekod_TAMPON_UZUNLUGU_MAKS);
+
+    if (!karekodDizisi || !geciciTampon) {
+        printf("\nHata: Bellek tahsis edilemedi!\nError: Memory allocation failed!\n");
+        free(girisMetni);
+        if (karekodDizisi) free(karekodDizisi);
+        if (geciciTampon) free(geciciTampon);
+        return 1;
+    }
 
     bool basarili = karekod_metinKodla(girisMetni, geciciTampon, karekodDizisi, 
                                        karekod_HataDuzeltme_DUSUK, 
@@ -119,8 +154,12 @@ int main() {
         printf("\nBasarili! Telefonunuzun hemen okuyabilecegi karekod uretildi.\nSuccess! A QR code that your phone can immediately read has been generated.\n");
         printf("Dosya-File: %s\n", dosyaAdi);
     } else {
-        printf("\nHata: Karekod olusturulamadi. Metin cok uzun olabilir.\nError: QR code could not be generated. The text may be too long.\n");
+        printf("\nHata: Karekod olusturulamadi. Metin cok uzun veya desteklenmiyor olabilir.\nError: QR code could not be generated. The text may be too long or unsupported.\n");
     }
+
+    free(girisMetni);
+    free(karekodDizisi);
+    free(geciciTampon);
 
     return 0;
 }
