@@ -35,6 +35,7 @@ Bu program bir metni alıp resme dönüştürürken şu adımları izler:
 | `main.c` | Kullanıcı ile etkileşime giren, girdiyi alan ve sonuç matrisini BMP formatında bilgisayara kaydeden ana program. |
 | `karekod.c` | Karekod standardının tüm çekirdek algoritmalarını (kodlama, hata düzeltme, maskeleme, puanlama) içeren asıl kütüphane dosyası. |
 | `karekod.h` | Kütüphanenin dışarıya açılan fonksiyonlarını, modlarını ve veri yapılarını (Struct, Enum) tanımlayan başlık dosyası. |
+| `Makefile` | Projenin hızlıca derlenmesini sağlayan otomasyon dosyası. |
 
 ## Kurulum ve Kullanım
 
@@ -43,6 +44,10 @@ Projeyi derlemek ve çalıştırmak için sisteminizde bir C derleyicisi (GCC vb
 **Derleme:**
 ```bash
 gcc main.c karekod.c -o karekod_uretici
+```
+**Alternatif derleme:**
+```bash
+make
 ```
 **Çalıştırma**
 ```bash
@@ -80,12 +85,17 @@ The abstract logical matrix is converted into a physical image file via the `bmp
 | `main.c` | The main program that interacts with the user, takes input, and saves the resulting matrix to the computer in BMP format. |
 | `karekod.c` | The core library file containing all QR Code standard algorithms (encoding, error correction, masking, penalty calculation). |
 | `karekod.h` | The header file defining the library's public functions, modes, and data structures (Structs, Enums). |
+| `Makefile` | The build automation file for quick compilation. |
 
 ## Installation and Usage
 To compile and run the project, you need a C compiler (like GCC) installed on your system.
 **Compilation**
 ```bash
 gcc main.c karekod.c -o qr_maker
+```
+**Compilation Alternate**
+```bash
+make
 ```
 **Execution**
 ```bash
