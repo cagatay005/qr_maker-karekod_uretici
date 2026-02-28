@@ -1,4 +1,4 @@
-# 🇹🇷 Karekod (QR Code) Üretici - C ile Sıfırdan Özel Kütüphane
+# (🇹🇷) Karekod (QR Code) Üretici - C ile Sıfırdan Özel Kütüphane
 
 Bu proje, hiçbir dış kütüphane (üçüncü parti bağımlılık) kullanılmadan, baştan sona **C programlama dili** ile yazılmış bir Karekod (QR Code) üreticisidir. Karekod standardının (ISO/IEC 18004) gerektirdiği tüm karmaşık matematiksel işlemler, hata düzeltme algoritmaları ve piksel tabanlı görüntü oluşturma süreçleri sıfırdan geliştirilmiştir.
 
@@ -48,7 +48,7 @@ gcc main.c karekod.c -o karekod_uretici
 ```bash
 ./karekod_uretici
 ```
-# ENG QR Code Generator - Custom C Library from Scratch
+# (ENG) QR Code Generator - Custom C Library from Scratch
 This project is a complete QR Code (Karekod) generator written entirely in the **C programming language** from scratch, without the use of any external libraries or third-party dependencies. All complex mathematical operations, error correction algorithms, and pixel-based image generation processes required by the QR code standard (ISO/IEC 18004) were developed manually.
 
 ## Features
