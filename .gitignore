@@ -1,0 +1,18 @@
+# Derlenmiş çalıştırılabilir dosyalar (Windows, Linux, macOS)
+*.exe
+*.out
+*.o
+karekod_uretici
+qr_maker
+
+# Üretilen Karekod resimleri
+*.bmp
+
+# İşletim sistemi kalıntıları
+.DS_Store
+Thumbs.db
+
+# IDE ve Editör klasörleri (İsteğe bağlı)
+.vscode/
+.idea/
+*.swp
