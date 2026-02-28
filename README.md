@@ -80,7 +80,7 @@ This project is a complete QR Code (Karekod) generator written entirely in the *
 ## How It Works (Step-by-Step Generation)
 
 <p align="center">
-  <img src="karekod-anatomisi.png" alt="Barcode Anatomy and Function Modules" width="400">
+  <img src="barcod-anatomy.png" alt="Barcode Anatomy and Function Modules" width="400">
 </p>
 
 When converting text to an image, this program follows these educational steps:
